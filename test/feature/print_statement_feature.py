@@ -3,7 +3,7 @@ from unittest import TestCase
 from hamcrest import *
 
 from bank.account import Account
-from mockito import verify, mock
+from mockito import verify, mock, inorder
 
 
 class Console():
@@ -20,7 +20,7 @@ class PrintStatementFeature(TestCase):
         account.withdraw(100)
         account.deposit(500)
 
-        verify(console).print_line('DATE | AMOUNT | BALANCE')
-        verify(console).print_line('10/04/2015 | 500.00 | 1400.00')
-        verify(console).print_line('02/04/2015 | -100.00 | 900.00')
-        verify(console).print_line('01/04/2015 | 1000.00 | 1000.00')
+        inorder.verify(console).print_line('DATE | AMOUNT | BALANCE')
+        inorder.verify(console).print_line('10/04/2015 | 500.00 | 1400.00')
+        inorder.verify(console).print_line('02/04/2015 | -100.00 | 900.00')
+        inorder.verify(console).print_line('01/04/2015 | 1000.00 | 1000.00')
