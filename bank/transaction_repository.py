@@ -8,6 +8,6 @@ class TransactionRepository():
     def store(self, amount):
         self._transactions.append(Transaction(amount))
 
-    def transactions(self):
+    def all_transactions(self):
         #TODO: better doing it INMUTABLE
         return self._transactions
