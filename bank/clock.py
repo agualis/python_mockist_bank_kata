@@ -1,6 +1,11 @@
-from bank.exceptions import UnsupportedOperationException
+import arrow
 
 
 class Clock():
     def date_as_string(self):
-        raise UnsupportedOperationException()
+        return self.today().format('DD-MM-YYYY')
+
+    def today(self):
+        utc = arrow.utcnow()
+        return utc.to('Europe/Madrid')
+
