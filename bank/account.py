@@ -1,7 +1,5 @@
 from bank.exceptions import UnsupportedOperationException
 
-STATEMENTS_HEADER = 'DATE | AMOUNT | BALANCE'
-
 
 class Account():
     def __init__(self, transaction_repository, statement_printer):
@@ -15,4 +13,4 @@ class Account():
         self.transaction_repository.store(-amount)
 
     def print_statement(self):
-        self.statement_printer.print_transactions()
+        self.statement_printer.print_transactions(self.transaction_repository.transactions())

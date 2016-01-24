@@ -18,3 +18,4 @@ class AccountTest(TestCase):
         self.account.withdraw(50)
 
         verify(self.transaction_repository).store(-50)
+
