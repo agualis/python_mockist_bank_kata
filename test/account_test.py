@@ -7,7 +7,7 @@ from mockito import verify, mock
 class AccountTest(TestCase):
     def setUp(self):
         self.transaction_repository = mock()
-        self.account = Account(self.transaction_repository)
+        self.account = Account(self.transaction_repository, None)
 
     def test_account_should_store_a_deposit_transaction(self):
         self.account.deposit(100)
