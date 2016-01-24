@@ -2,11 +2,14 @@ from bank.exceptions import UnsupportedOperationException
 
 
 class Account():
+    def __init__(self, transaction_repository):
+        self.transaction_repository = transaction_repository
+
     def deposit(self, amount):
-        raise UnsupportedOperationException()
+        self.transaction_repository.store(amount)
 
     def withdraw(self, amount):
-        raise UnsupportedOperationException()
+        self.transaction_repository.store(-amount)
 
     def print_statement(self):
         raise UnsupportedOperationException()
