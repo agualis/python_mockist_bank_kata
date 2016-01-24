@@ -10,8 +10,9 @@ from bank.statement_printer import StatementPrinter
 class PrintStatementFeature(TestCase):
     def test_print_statement_containing_all_transactions(self):
         console = mock()
+        clock = mock()
 
-        account = Account(TransactionRepository(), StatementPrinter())
+        account = Account(TransactionRepository(clock), StatementPrinter(console))
         account.deposit(1000)
         account.withdraw(100)
         account.deposit(500)

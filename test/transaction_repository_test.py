@@ -20,10 +20,10 @@ class AccountTest(TestCase):
         self.transaction_repository.store(20)
 
         assert_that(self.transaction_repository.all_transactions(), contains(
-            aTransaction(100, '01/04/2015'),
-            aTransaction(-50, '02/04/2015'),
-            aTransaction(20, '10/04/2015')))
+            a_transaction(100, '01/04/2015'),
+            a_transaction(-50, '02/04/2015'),
+            a_transaction(20, '10/04/2015')))
 
 
-def aTransaction(amount, today):
+def a_transaction(amount, today):
     return Transaction(amount, today)

@@ -13,4 +13,4 @@ class Account():
         self.transaction_repository.store(-amount)
 
     def print_statement(self):
-        self.statement_printer.print_transactions(self.transaction_repository.transactions())
+        self.statement_printer.print_transactions(self.transaction_repository.all_transactions())
