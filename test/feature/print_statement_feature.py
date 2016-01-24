@@ -1,14 +1,8 @@
 from unittest import TestCase
 
-from hamcrest import *
+from mockito import mock, inorder
 
 from bank.account import Account
-from mockito import verify, mock, inorder
-
-
-class Console():
-    def print_line(self, text):
-        print text
 
 
 class PrintStatementFeature(TestCase):

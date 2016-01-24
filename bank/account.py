@@ -1,10 +1,12 @@
-class Account():
+from bank.exceptions import UnsupportedOperationException
 
+
+class Account():
     def deposit(self, amount):
-        pass
+        raise UnsupportedOperationException()
 
     def withdraw(self, amount):
-        pass
+        raise UnsupportedOperationException()
 
     def print_statement(self):
-        pass
+        raise UnsupportedOperationException()
