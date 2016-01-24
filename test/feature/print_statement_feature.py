@@ -3,13 +3,14 @@ from unittest import TestCase
 from mockito import mock, inorder
 
 from bank.account import Account
+from bank.transaction_repository import TransactionRepository
 
 
 class PrintStatementFeature(TestCase):
     def test_print_statement_containing_all_transactions(self):
         console = mock()
 
-        account = Account()
+        account = Account(TransactionRepository())
         account.deposit(1000)
         account.withdraw(100)
         account.deposit(500)
