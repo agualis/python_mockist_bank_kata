@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from mockito import mock, inorder
+from mockito import mock, inorder, when
 
 from bank.account import Account
 from bank.transaction_repository import TransactionRepository
@@ -11,6 +11,8 @@ class PrintStatementFeature(TestCase):
     def test_print_statement_containing_all_transactions(self):
         console = mock()
         clock = mock()
+
+        when(clock).date_as_string().thenReturn('01/04/2015').thenReturn('02/04/2015').thenReturn('10/04/2015')
 
         account = Account(TransactionRepository(clock), StatementPrinter(console))
         account.deposit(1000)
